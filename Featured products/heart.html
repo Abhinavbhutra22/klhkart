@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Catalog</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.like-button').click(function() {
+                var productId = $(this).closest('.card').attr('id');
+                var productName = $(this).closest('.card-body').find('.Card-title').text();
+                var productPrice = $(this).closest('.card-body').find('h4').text();
+                
+                var likedProduct = {
+                    id: productId,
+                    name: productName,
+                    price: productPrice
+                };
+
+                var favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+                favorites.push(likedProduct);
+                localStorage.setItem('favorites', JSON.stringify(favorites));
+
+                window.location.href = "fav.html";
+            });
+
+            $('.shop-button').click(function() {
+                var productId = $(this).closest('.card').attr('id');
+                var productName = $(this).closest('.card-body').find('.Card-title').text();
+                var productPrice = $(this).closest('.card-body').find('h4').text();
+                
+                var cartProduct = {
+                    id: productId,
+                    name: productName,
+                    price: productPrice
+                };
+
+                var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+                cartItems.push(cartProduct);
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+
+                window.location.href = "cart.html";
+            });
+        });
+    </script>
+</head>
+<body>
+    <section id="product1">
+        <div class="container">
+            <div id="pro1" class="card" style="width: 250px;">
+                <img class="card-img-top" src="Featured products/f5.jpg">
+                <div class="card-body">
+                    <span class="Card-subtitle">adidas</span>
+                    <h2 class="Card-title"><h5>Blooming Blue Paradise Shirt</h5></h2>
+                    <h4>78$</h4>
+                    <div id="icon">
+                        <button class="btn btn-outline-danger like-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-heart"></i>
+                          </button>
+                          <button class="btn btn-outline-primary shop-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-shopping-cart"></i>
+                          </button>
+                    </div>
+                </div>
+            </div>
+            <div id="pro2" class="card" style="width: 250px;">
+                <img class="card-img-top" src="Featured products/f6.jpg">
+                <div class="card-body">
+                    <span class="Card-subtitle">adidas</span>
+                    <h2 class="Card-title"><h5>Two-Tone Modern Full Sleeves Shirt</h5></h2>
+                    <h4>80$</h4>
+                    <div id="icon">
+                        <button class="btn btn-outline-danger like-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-heart"></i>
+                          </button>
+                          <button class="btn btn-outline-primary shop-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-shopping-cart"></i>
+                          </button>
+                    </div>
+                </div>
+            </div>
+            <div id="pro3" class="card" style="width: 250px;">
+                <img class="card-img-top" src="Featured products/f7.jpg">
+                <div class="card-body">
+                    <span class="Card-subtitle">adidas</span>
+                    <h2 class="Card-title"><h5>Earthy Floral Elegance Shirt</h5></h2>
+                    <h4>70$</h4>
+                    <div id="icon">
+                        <button class="btn btn-outline-danger like-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-heart"></i>
+                          </button>
+                          <button class="btn btn-outline-primary shop-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-shopping-cart"></i>
+                          </button>
+                    </div>
+                </div>
+            </div>
+            <div id="pro4" class="card" style="width: 250px;">
+                <img class="card-img-top" src="Featured products/f8.jpg">
+                <div class="card-body">
+                    <span class="Card-subtitle">adidas</span>
+                    <h2 class="Card-title"><h5>Effortless Black shirt</h5></h2>
+                    <h4>68$</h4>
+                    <div id="icon">
+                        <button class="btn btn-outline-danger like-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-heart"></i>
+                          </button>
+                          <button class="btn btn-outline-primary shop-button" data-toggle="button" aria-pressed="false">
+                            <i class="fas fa-shopping-cart"></i>
+                          </button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </section>
+
+    <!-- Rest of the HTML content -->
+
+</body>
+</html>
